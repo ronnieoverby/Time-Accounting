@@ -1,0 +1,9 @@
+c:\users\dsoverby1986\documents\visual studio 2013\Projects\HaywardMachineShopTimeSheet\HaywardMachineShopTimeSheet\bin\Debug\HaywardMachineShopTimeSheet.exe.config
+c:\users\dsoverby1986\documents\visual studio 2013\Projects\HaywardMachineShopTimeSheet\HaywardMachineShopTimeSheet\bin\Debug\HaywardMachineShopTimeSheet.exe
+c:\users\dsoverby1986\documents\visual studio 2013\Projects\HaywardMachineShopTimeSheet\HaywardMachineShopTimeSheet\bin\Debug\HaywardMachineShopTimeSheet.pdb
+c:\users\dsoverby1986\documents\visual studio 2013\Projects\HaywardMachineShopTimeSheet\HaywardMachineShopTimeSheet\obj\Debug\HaywardMachineShopTimeSheet.csprojResolveAssemblyReference.cache
+c:\users\dsoverby1986\documents\visual studio 2013\Projects\HaywardMachineShopTimeSheet\HaywardMachineShopTimeSheet\obj\Debug\HaywardMachineShopTimeSheet.Form1.resources
+c:\users\dsoverby1986\documents\visual studio 2013\Projects\HaywardMachineShopTimeSheet\HaywardMachineShopTimeSheet\obj\Debug\HaywardMachineShopTimeSheet.Properties.Resources.resources
+c:\users\dsoverby1986\documents\visual studio 2013\Projects\HaywardMachineShopTimeSheet\HaywardMachineShopTimeSheet\obj\Debug\HaywardMachineShopTimeSheet.csproj.GenerateResource.Cache
+c:\users\dsoverby1986\documents\visual studio 2013\Projects\HaywardMachineShopTimeSheet\HaywardMachineShopTimeSheet\obj\Debug\HaywardMachineShopTimeSheet.exe
+c:\users\dsoverby1986\documents\visual studio 2013\Projects\HaywardMachineShopTimeSheet\HaywardMachineShopTimeSheet\obj\Debug\HaywardMachineShopTimeSheet.pdb
