@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Media;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,6 +18,62 @@ namespace HaywardMachineShopTimeSheet
         public Form1()
         {
             InitializeComponent();
+            
+            _rainbowIterator = EndlessRainbow.GetEnumerator();
+            timer1.Tick += Tick;
+
+            foreach (var btn in Controls.OfType<Button>())
+            {
+                btn.Click += Fart;
+            }
+        }
+
+        private void Fart(object sender, EventArgs e)
+        {
+            using (var fartStream = Resources.fart)
+            using (var soundPlayer = new SoundPlayer(fartStream))
+            {
+                soundPlayer.Play();
+            }
+        }
+
+        /// <summary>
+        /// What does it mean?!
+        /// </summary>
+        static IEnumerable<Color> EndlessRainbow
+        {
+            get
+            {
+                var colors = new[]
+                {
+                    Color.Red,
+                    Color.Orange,
+                    Color.Yellow,
+                    Color.Green,
+                    Color.Blue,
+                    Color.Indigo,
+                    Color.Violet,
+                };
+
+                while (true)
+                {
+                    foreach (var color in colors)
+                    {
+                        yield return color;
+                    }
+                }
+            }
+        }
+
+        private readonly IEnumerator<Color> _rainbowIterator;
+
+        private void Tick(object sender, EventArgs e)
+        {
+            foreach (Control lbl in Controls)
+            {
+                _rainbowIterator.MoveNext();
+                lbl.ForeColor = _rainbowIterator.Current;
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -51,7 +110,7 @@ namespace HaywardMachineShopTimeSheet
             string standardSUH = tbStandardSetupHrs.Text;
             string actualSUH = tbActualSetupHrs.Text;
             double totalHours = 0;
-            
+
             if (workOrder == "")
             {
                 workOrder = "N/A";
@@ -103,7 +162,7 @@ namespace HaywardMachineShopTimeSheet
                 {
                     totalHours = double.Parse(actualSUH);
                     actualPPH = "N/A";
-                    
+
                 }
                 else
                 {
@@ -114,8 +173,8 @@ namespace HaywardMachineShopTimeSheet
                     lblTotalHours1.Text = totalHoursSet.ToString();
                 }
 
-                
-                if(actualSUH == "")
+
+                if (actualSUH == "")
                 {
                     totalHours = double.Parse(quantity) / double.Parse(actualPPH);
                     int standardPPHSet = int.Parse(standardPPH);
@@ -130,11 +189,11 @@ namespace HaywardMachineShopTimeSheet
                     lblEfficiency1.Text = Math.Round(efficiencyTest3, 2).ToString() + "%";
                     lblTotalHours1.Text = Math.Round(totalHours, 2).ToString();
                     lblActualSUHrs1.Text = "N/A";
-                 }
-                else                                                  
-                 {                                                    
-                    totalHours = double.Parse(actualSUH);             
-                    double actualSUHSet = double.Parse(actualSUH);    
+                }
+                else
+                {
+                    totalHours = double.Parse(actualSUH);
+                    double actualSUHSet = double.Parse(actualSUH);
                     double standardSUHSet = double.Parse(standardSUH);
                     double efficiencyTest3 = 0;
                     double negEfficiency1 = actualSUHSet / standardSUHSet;
@@ -143,22 +202,22 @@ namespace HaywardMachineShopTimeSheet
                     lblEfficiency1.Text = Math.Round(efficiencyTest3, 2).ToString() + "%";
                     lblTotalHours1.Text = Math.Round(totalHours, 2).ToString();
                     lblActualSUHrs1.Text = actualSUH;
-                 }
+                }
 
-                 lblRow1.Text = "1.)";
-                 lblWorkOrder1.Text = workOrder;
-                 lblPart1.Text = partNumber;
-                 lblMachine1.Text = machineNumber;
-                 lblOperation1.Text = operationNumber;
-                 lblCode1.Text = codeStatus;
-                 lblStandardPPH1.Text = standardPPH.ToString();
-                 lblActualPPH1.Text = actualPPH.ToString();
-                 lblQuantity1.Text = quantity.ToString();
-                 lblScrap1.Text = scrap.ToString();
-                 lblStandardSUHrs1.Text = standardSUH.ToString();
+                lblRow1.Text = "1.)";
+                lblWorkOrder1.Text = workOrder;
+                lblPart1.Text = partNumber;
+                lblMachine1.Text = machineNumber;
+                lblOperation1.Text = operationNumber;
+                lblCode1.Text = codeStatus;
+                lblStandardPPH1.Text = standardPPH.ToString();
+                lblActualPPH1.Text = actualPPH.ToString();
+                lblQuantity1.Text = quantity.ToString();
+                lblScrap1.Text = scrap.ToString();
+                lblStandardSUHrs1.Text = standardSUH.ToString();
             }
 
-            else if(lblRow2.Text == "")
+            else if (lblRow2.Text == "")
             {
                 if (actualPPH == "")
                 {
@@ -174,7 +233,6 @@ namespace HaywardMachineShopTimeSheet
                     totalHoursSet = quantitySet / actualPPHSet;
                     lblTotalHours2.Text = totalHoursSet.ToString();
                 }
-
 
                 if (actualSUH == "")
                 {
@@ -219,7 +277,7 @@ namespace HaywardMachineShopTimeSheet
                 lblStandardSUHrs2.Text = standardSUH.ToString();
             }
 
-            else if(lblRow3.Text == "")
+            else if (lblRow3.Text == "")
             {
                 if (actualPPH == "")
                 {
